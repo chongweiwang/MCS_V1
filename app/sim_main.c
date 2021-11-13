@@ -43,11 +43,11 @@ void sim_main(void)
 void simInitHook(void)
 {
     //sim_test_dc_brush_init();
-    //sim_test_pmsm_init();
+    sim_test_pmsm_init();
 
 
     //sim_dc_brush_ctrl_init();
-    sim_pmsm_foc_init();
+    //sim_pmsm_foc_init();
 }
 /**
  * 工程仿真hook函数,对应工程的主要仿真
@@ -55,10 +55,10 @@ void simInitHook(void)
 void simTaskHook(void)
 {
     //sim_test_dc_brush_task();
-    //sim_test_pmsm_task();
+    sim_test_pmsm_task();
 
     //sim_dc_brush_ctrl_task();
-    sim_pmsm_foc_task();
+    //sim_pmsm_foc_task();
 }
 
 
