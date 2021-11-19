@@ -23,7 +23,7 @@ extern "C" {
 #include <stdint.h>
 #include <Python.h>
 
-
+//#define  Py_Home     L"A:/install/soft/Python39"        /*python 目录*/
 #define  DEBUG_MSG(x)   printf("%s \r\n",x);fflush(stdout)
 
 

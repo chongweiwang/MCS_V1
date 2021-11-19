@@ -1,8 +1,12 @@
-﻿#include "app/sim_main.h"
-
+﻿
+#include <QApplication>
+#include "page/mainwindow.h"
 
 int main(int argc, char *argv[])
 {
-    sim_main();
-    return 0;
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
+    return a.exec();
 }

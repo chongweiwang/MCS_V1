@@ -1,6 +1,6 @@
-# QT       += core gui
+QT       += core gui
 
-# greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 
@@ -8,13 +8,13 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-INCLUDEPATH += A:/install/soft/Python39/include
-INCLUDEPATH += A:/install/soft/Python39
-LIBS += A:/install/soft/Python39/libs/python39.lib
+#INCLUDEPATH += A:/install/soft/Python39/include
+#INCLUDEPATH += A:/install/soft/Python39
+#LIBS += A:/install/soft/Python39/libs/python39.lib
 
 
-INCLUDEPATH += $$PWD/components/math/rk4
-LIBS += -L$$PWD/components/math/rk4 -lrk4
+#INCLUDEPATH += $$PWD/components/math/rk4
+#LIBS += -L$$PWD/components/math/rk4 -lrk4
 
 SOURCES += \
     app/sim_example/dc_brush_ctrl/dc_brush_ctrl.c \
@@ -28,13 +28,18 @@ SOURCES += \
     app/sim_module_test/test_pmsm/test_pmsm.c \
     components/controller/pid/pid.c \
     components/math/coordinate/coordinate.c \
-    #components/math/rk4/rk4.c \
+    components/math/rk4/rk4.c \
     components/service/base_obj.c \
-    components/service/cpy_plot.c \
+    #components/service/cpy_plot.c \
+    components/service/qt_plot.cpp \
     components/simscape/electrical/dc_brush/dc_brush.c \
     components/simscape/electrical/inverter/inverter.c \
     components/simscape/electrical/pmsm/pmsm.c \
     main.cpp \
+    page/mainwindow.cpp\
+    page/multicurvesplot.cpp \
+    page/qcustomplot.cpp \
+    page/waveplot.cpp
 
 HEADERS += \
     app/sim_config.h \
@@ -51,14 +56,19 @@ HEADERS += \
     components/math/coordinate/coordinate.h \
     components/math/rk4/rk4.h \
     components/service/base_obj.h \
-    components/service/cpy_plot.h \
+    #components/service/cpy_plot.h \
+    components/service/qt_plot.h \
     components/simscape/electrical/dc_brush/dc_brush.h \
     components/simscape/electrical/inverter/inverter.h \
     components/simscape/electrical/pmsm/pmsm.h \
+    page/mainwindow.h\
+    page/multicurvesplot.h \
+    page/qcustomplot.h \
+    page/waveplot.h
 
 
 FORMS += \
-
+    page/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -10,11 +10,14 @@
 #include "base_obj.h"
 
 
+
 // 对图像的管理
-#include "cpy_plot.h"
+//#include "cpy_plot.h"
+
+#include "qt_plot.h"
+
 struct ObjWave
 {
-    
     struct 
     {
         uint64_t cnt;
@@ -44,7 +47,7 @@ struct Time
 
 
 // 测试，这玩意得全局出问题的概率小点，局部声明经常出问题
-static struct CpyPlot mCpy;
+//static struct CpyPlot mCpy;
 static struct ObjWave gWave;
 static struct Time    gTime;
 
@@ -119,11 +122,12 @@ static void _addWave(struct BaseObj *that, uint16_t ch, double data)
     gWave.selectCh[ch] = 1;
 }
 
-
+//QtPlot *qt_plot = new QtPlot();
 
 // 主要设计调用这个函数
 static void _globalPlot(struct BaseObj *that)
 {
+
 
     // 得到画图的数量，和对应的通道
     for (int i = 0; i <= BASEOBJ_WAVE_MAX_CH; i++ )
@@ -140,24 +144,35 @@ static void _globalPlot(struct BaseObj *that)
         }
     }
 
-    // 加载python模块
-    CpyPlot_Constructor(&mCpy);
-    mCpy.init(&mCpy);
 
-    mCpy.setWaveNum(&mCpy,gWave.selectNum);
+    // 加载python模块
+    //CpyPlot_Constructor(&mCpy);
+    //mCpy.init(&mCpy);
+    //mCpy.setWaveNum(&mCpy,gWave.selectNum);
+
+
+    // 传入qt
+    int qtHandle = 0;
+    getInstance(&qtHandle);
+    qtSetWaveNum(qtHandle,gWave.selectNum);
+
 
     // 传入name 传入xy
     for (int i = 0; i < gWave.selectNum; i++ )
     {
-        struct WaveProperty  wave;
-        wave.id = i;
-        strcpy(wave.name, gWave.ch[gWave.chSave[i]].name);
 
-        mCpy.addWave(&mCpy,&wave,gWave.ch[gWave.chSave[i]].time,gWave.ch[gWave.chSave[i]].data,gWave.ch[gWave.chSave[i]].cnt);
+        qtAddWave(qtHandle,gWave.ch[gWave.chSave[i]].name,i,gWave.ch[gWave.chSave[i]].time,gWave.ch[gWave.chSave[i]].data,gWave.ch[gWave.chSave[i]].cnt);
+
+        //struct WaveProperty  wave;
+        //wave.id = i;
+        //strcpy(wave.name, gWave.ch[gWave.chSave[i]].name);
+
+        //mCpy.addWave(&mCpy,&wave,gWave.ch[gWave.chSave[i]].time,gWave.ch[gWave.chSave[i]].data,gWave.ch[gWave.chSave[i]].cnt);
     }
 
-    mCpy.runPlot(&mCpy);
-    mCpy.destroy(&mCpy);
+    runPlot(qtHandle);
+    //mCpy.runPlot(&mCpy);
+    //mCpy.destroy(&mCpy);
 }
 
 

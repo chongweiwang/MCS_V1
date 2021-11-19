@@ -26,28 +26,16 @@
 
 ## 依赖
 1. 平台:Windows
-2. IDE: QT5  MINGW64bit
-3. python: python3.9(64bit) **matplotlib库** 
-
-
-## 修改
-1. python相关
-- 需要在.pro中修改python的库的位置
-- 需要在 app/sim_config.h 中修改python的库的位置
+2. IDE: QT5
+3. 波形打印使用第三方库：qcustomplot
 
 ## 编译
-你需要在QT IDE中选择MINGW 64bit 进行编译。
-1. python相关
-- 第一次编译完后会报错，需要将py文件夹下的wave_plot.py放到目录下:build-motor_simulation-Desktop_Qt_5_12_11_MinGW_64_bit-Debug
-- 因为编译后的.exe会调用这个py，然后再次编译。
+你只需要在QT IDE中进行编译。
 
 ---
-最开始我是想用qt的c++写波形，倔强的我想学习一下python，结果就去学习了c语言如何调用python，导致加入python配置有点麻烦。
-
-如果不出意外，顺利的话。V1版本把差不多的模型仿真建立后。我会根据情况重新写个V2版本，使用c++的qt波形显示，以及其他的界面。因为，波形这块用python占的内存有点大，对于python不太熟悉，生成波形的调节，不太满意。而且这种方式占用内存有点大。
+之前用python，有同学不行，改成qt了。只需要下载qt ide编译就行了。
 
 **当然，我还有个设想，有空的话会设计一款小驱动器。直接把仿真的代码放到驱动器上测试使用，当然还有对应的上位机，仿真软件就是上位机的一部分了。**
-
 
 ---
 
@@ -58,4 +46,4 @@
 ![dc_sim_wave](./doc/image/dc_sim_wave.png)
 
 ## pmsm给Uq电压测试波形  
-![dc_sim_wave](./doc/image/pmsm_sim_wave.png)
+![pmsm_sim_wave](./doc/image/pmsm_sim_wave.png)
