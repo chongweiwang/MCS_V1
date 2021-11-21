@@ -23,8 +23,8 @@ static void _init(struct DcBrushCtrl *that)
     own.m_DcBrush.init(&own.m_DcBrush);
 
     // init  pid parm
-    own.m_rpm_pid.setCtrlPrm(&own.m_rpm_pid,0.01,0.0003,0);
-    own.m_rpm_pid.setIntegralPrm(&own.m_rpm_pid,300,-300);
+    own.m_rpm_pid.setCtrlParm(&own.m_rpm_pid,0.004,0.00002,0);
+    own.m_rpm_pid.setIntegralParm(&own.m_rpm_pid,1,-1);
 
     // config wave info
     that->setChName(&that->m_obj,0,"rpm",strlen("rpm"));

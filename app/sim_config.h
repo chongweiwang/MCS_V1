@@ -18,7 +18,7 @@ extern "C" {
 /**
  * 仿真的全局宏
  * */
-#define  SIM_STEP_SIZE   (0.0000001)                   /*仿真的步长*/
+#define  SIM_STEP_SIZE   (0.000001)                   /*仿真的步长 1us*/
 #define  SIM_TIME_S      (1)                          /*仿真时间*/
 #define  SIM_TIME_LEN    (SIM_TIME_S/SIM_STEP_SIZE)   /*仿真计算的次数*/
 

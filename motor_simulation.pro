@@ -24,9 +24,15 @@ SOURCES += \
     app/sim_main.c \
     app/sim_module_test/test_dc_brush/sim_test_dc_brush.c \
     app/sim_module_test/test_dc_brush/test_dc_brush.c \
+    app/sim_module_test/test_pid/sim_test_pid.c \
+    app/sim_module_test/test_pid/test_pid.c \
     app/sim_module_test/test_pmsm/sim_test_pmsm.c \
     app/sim_module_test/test_pmsm/test_pmsm.c \
+    components/controller/pid/back_cal_pid.c \
+    components/controller/pid/dclamp_pid.c \
+    components/controller/pid/inc_pid.c \
     components/controller/pid/pid.c \
+    components/controller/pid/sclamp_pid.c \
     components/math/coordinate/coordinate.c \
     components/math/rk4/rk4.c \
     components/service/base_obj.c \
@@ -50,9 +56,15 @@ HEADERS += \
     app/sim_main.h \
     app/sim_module_test/test_dc_brush/sim_test_dc_brush.h \
     app/sim_module_test/test_dc_brush/test_dc_brush.h \
+    app/sim_module_test/test_pid/sim_test_pid.h \
+    app/sim_module_test/test_pid/test_pid.h \
     app/sim_module_test/test_pmsm/sim_test_pmsm.h \
     app/sim_module_test/test_pmsm/test_pmsm.h \
+    components/controller/pid/back_cal_pid.h \
+    components/controller/pid/dclamp_pid.h \
+    components/controller/pid/inc_pid.h \
     components/controller/pid/pid.h \
+    components/controller/pid/sclamp_pid.h \
     components/math/coordinate/coordinate.h \
     components/math/rk4/rk4.h \
     components/service/base_obj.h \

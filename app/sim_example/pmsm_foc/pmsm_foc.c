@@ -34,18 +34,18 @@ static void _init(struct PmsmFoc *that)
     own.m_Inverter.i_busVol = own.m_Pmsm.c_rated_vol;
 
     // init  pid parm
-    //own.m_Id_pid.setCtrlPrm(&own.m_Id_pid,own.m_Pmsm.c_Lq*80,own.m_Pmsm.c_R,0);
-    own.m_Id_pid.setCtrlPrm(&own.m_Id_pid,0.5,0.003,0);
-    own.m_Id_pid.setIntegralPrm(&own.m_Id_pid, 200, -200);
+    //own.m_Id_pid.setCtrlParm(&own.m_Id_pid,own.m_Pmsm.c_Lq*80,own.m_Pmsm.c_R,0);
+    own.m_Id_pid.setCtrlParm(&own.m_Id_pid,0.5,0.0008,0);
+    own.m_Id_pid.setIntegralParm(&own.m_Id_pid, 1, -1);
 
-    //own.m_Iq_pid.setCtrlPrm(&own.m_Iq_pid,own.m_Pmsm.c_Lq*80,own.m_Pmsm.c_R,0);
-    own.m_Iq_pid.setCtrlPrm(&own.m_Iq_pid,0.5,0.03,0);
-    own.m_Iq_pid.setIntegralPrm(&own.m_Iq_pid, 200, -200);
+    //own.m_Iq_pid.setCtrlParm(&own.m_Iq_pid,own.m_Pmsm.c_Lq*80,own.m_Pmsm.c_R,0);
+    own.m_Iq_pid.setCtrlParm(&own.m_Iq_pid,0.5,0.0008,0);
+    own.m_Iq_pid.setIntegralParm(&own.m_Iq_pid, 1, -1);
 
-    own.m_rpm_pid.setCtrlPrm(&own.m_rpm_pid,4,0.02,0);
-    own.m_rpm_pid.setIntegralPrm(&own.m_rpm_pid,10,-10);
+    own.m_rpm_pid.setCtrlParm(&own.m_rpm_pid,4,0.002,0);
+    own.m_rpm_pid.setIntegralParm(&own.m_rpm_pid,1,-1);
 
-    own.m_pos_pid.setCtrlPrm(&own.m_pos_pid,4,0,0);
+    own.m_pos_pid.setCtrlParm(&own.m_pos_pid,4,0,0);
 
     // config wave info
     that->setChName(&that->m_obj,0,"rpm",strlen("rpm"));
@@ -136,7 +136,7 @@ static void _simTask(struct PmsmFoc *that)
     static double last_us = 0;
 
     /*控制模式、控制量的设置*/
-    own.Ctrl.c_ctrl_mode = PMSM_FOC_CTRL_VEL;
+    own.Ctrl.c_ctrl_mode = PMSM_FOC_CTRL_TUR;
     own.Ctrl.c_vel = 50;
     own.Ctrl.c_pos = 20;
     own.Ctrl.c_iq = 1;

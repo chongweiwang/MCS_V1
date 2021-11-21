@@ -45,7 +45,7 @@ static void _simTask(struct TstPmsm *that)
     own.m_Pmsm.i_J =  0.01;
 
     // 2s 加负载
-    if (ms>500)  own.m_Pmsm.i_TL = 4;
+    if (ms>2000)  own.m_Pmsm.i_TL = 4;
 
 
     // set input vol 
