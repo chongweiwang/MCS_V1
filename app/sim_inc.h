@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @copyright  Copyright 2021 zerodrive wangchongwei 
  * @license:    Apache-2.0 License
  * @brief:  include 
@@ -21,7 +21,7 @@ extern "C" {
 #include "app/sim_module_test/test_dc_brush/sim_test_dc_brush.h"
 #include "app/sim_module_test/test_pmsm/sim_test_pmsm.h"
 #include "app/sim_module_test/test_pid/sim_test_pid.h"
-
+#include "app/sim_module_test/test_svpwm/sim_test_svpwm.h"
 
 #include "app/sim_example/dc_brush_ctrl/sim_dc_brush_ctrl.h"
 #include "app/sim_example/pmsm_foc/sim_pmsm_foc.h"

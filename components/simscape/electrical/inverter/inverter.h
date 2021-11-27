@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @copyright  Copyright 2021 zerodrive wangchongwei 
  * @license:    Apache-2.0 License  
  * @brief:  inverter
@@ -23,22 +23,26 @@ extern "C" {
 
 struct Inverter
 {
-    void (*init)(struct Inverter *that);
-    void (*simulation)(struct Inverter *that,double t, double hs);
+    void (*init)(struct Inverter *that,float hs);
+    void (*simulation)(struct Inverter *that,float t, float hs);
+
+
+    void (*svpwmSim)(struct Inverter *that,float t, float abc_duty[3]);
 
     // configuration variable
-    double c_dead;  
+    float c_dead;  
+    float c_hs;
 
     // input variable
-    double i_busVol;     // bus voltage
-    double i_Ua_pu, i_Ub_pu, i_Uc_pu;
+    float i_busVol;     // bus voltage
+    float i_Ua_pu, i_Ub_pu, i_Uc_pu;
 
     // out put 
-    double o_Ua,o_Ub,o_Uc;   
+    float o_Ua,o_Ub,o_Uc;   
 
     struct 
     {
-
+        float m_abcDuty[3];
     }pvt;
 };
 

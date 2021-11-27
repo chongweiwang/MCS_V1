@@ -36,6 +36,11 @@ void sim_main(void)
 }
 
 
+
+
+
+
+
 /**
  * 工程初始化函数,负责调用初始化工程init
  * 
@@ -44,7 +49,9 @@ void simInitHook(void)
 {
     //sim_test_dc_brush_init();
     //sim_test_pmsm_init();
-    sim_test_pid_init();
+    //sim_test_pid_init();
+
+    sim_test_svpwm_init();
 
     //sim_dc_brush_ctrl_init();
     //sim_pmsm_foc_init();
@@ -56,7 +63,9 @@ void simTaskHook(void)
 {
     //sim_test_dc_brush_task();
     //sim_test_pmsm_task();
-    sim_test_pid_task();
+    //sim_test_pid_task();
+
+    sim_test_svpwm_task();
 
     //sim_dc_brush_ctrl_task();
     //sim_pmsm_foc_task();

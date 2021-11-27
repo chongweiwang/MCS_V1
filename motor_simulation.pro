@@ -28,6 +28,8 @@ SOURCES += \
     app/sim_module_test/test_pid/test_pid.c \
     app/sim_module_test/test_pmsm/sim_test_pmsm.c \
     app/sim_module_test/test_pmsm/test_pmsm.c \
+    app/sim_module_test/test_svpwm/sim_test_svpwm.c \
+    app/sim_module_test/test_svpwm/test_svpwm.c \
     components/controller/pid/back_cal_pid.c \
     components/controller/pid/dclamp_pid.c \
     components/controller/pid/inc_pid.c \
@@ -41,6 +43,7 @@ SOURCES += \
     components/simscape/electrical/dc_brush/dc_brush.c \
     components/simscape/electrical/inverter/inverter.c \
     components/simscape/electrical/pmsm/pmsm.c \
+    components/simscape/modulation/svpwm/svpwm.c \
     main.cpp \
     page/mainwindow.cpp\
     page/multicurvesplot.cpp \
@@ -53,6 +56,7 @@ HEADERS += \
     app/sim_example/dc_brush_ctrl/sim_dc_brush_ctrl.h \
     app/sim_example/pmsm_foc/pmsm_foc.h \
     app/sim_example/pmsm_foc/sim_pmsm_foc.h \
+    app/sim_inc.h \
     app/sim_main.h \
     app/sim_module_test/test_dc_brush/sim_test_dc_brush.h \
     app/sim_module_test/test_dc_brush/test_dc_brush.h \
@@ -60,6 +64,8 @@ HEADERS += \
     app/sim_module_test/test_pid/test_pid.h \
     app/sim_module_test/test_pmsm/sim_test_pmsm.h \
     app/sim_module_test/test_pmsm/test_pmsm.h \
+    app/sim_module_test/test_svpwm/sim_test_svpwm.h \
+    app/sim_module_test/test_svpwm/test_svpwm.h \
     components/controller/pid/back_cal_pid.h \
     components/controller/pid/dclamp_pid.h \
     components/controller/pid/inc_pid.h \
@@ -73,6 +79,7 @@ HEADERS += \
     components/simscape/electrical/dc_brush/dc_brush.h \
     components/simscape/electrical/inverter/inverter.h \
     components/simscape/electrical/pmsm/pmsm.h \
+    components/simscape/modulation/svpwm/svpwm.h \
     page/mainwindow.h\
     page/multicurvesplot.h \
     page/qcustomplot.h \

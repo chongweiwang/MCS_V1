@@ -21,8 +21,8 @@ struct ObjWave
     struct 
     {
         uint64_t cnt;
-        double data[BASEOBJ_WAVE_MAX_SIZE];
-        double time[BASEOBJ_WAVE_MAX_SIZE];
+        float data[BASEOBJ_WAVE_MAX_SIZE];
+        float time[BASEOBJ_WAVE_MAX_SIZE];
         char name[128];
         uint32_t len;
     }ch[BASEOBJ_WAVE_MAX_CH+1];
@@ -38,11 +38,11 @@ struct ObjWave
 
 struct Time
 {
-    double   hs_step;
+    float   hs_step;
     uint64_t mTime_cnt;
-    double   mTime_s;
-    double   mTime_ms;
-    double   mTime_us;
+    float   mTime_s;
+    float   mTime_ms;
+    float   mTime_us;
 };
 
 
@@ -56,22 +56,22 @@ static uint64_t _getTimeCnt(struct BaseObj *that)
     return gTime.mTime_cnt;
 }
 
-static double _getTimeMs(struct BaseObj *that)
+static float _getTimeMs(struct BaseObj *that)
 {
     return gTime.mTime_ms;
 }
 
-static double _getTimeUs(struct BaseObj *that)
+static float _getTimeUs(struct BaseObj *that)
 {
     return gTime.mTime_us;
 }
 
 /* 获取时间S*/
-static double _getTimeS(struct BaseObj *that)
+static float _getTimeS(struct BaseObj *that)
 {
     return gTime.mTime_s;
 }
-static double _getTimeHs(struct BaseObj *that)
+static float _getTimeHs(struct BaseObj *that)
 {
     return gTime.hs_step;
 }
@@ -84,7 +84,7 @@ static void _globalTimeStep(struct BaseObj *that)
     gTime.mTime_us = gTime.mTime_cnt*gTime.hs_step*1000000;
 }
 
-static void _globalInitTime(struct BaseObj *that,double hs)
+static void _globalInitTime(struct BaseObj *that,float hs)
 {
     memset(&gTime , 0 , sizeof(struct Time));
 
@@ -108,7 +108,7 @@ static void _setChName(struct BaseObj *that, uint16_t ch, char*name, uint32_t le
 
 }
 // 加入对应通道数据
-static void _addWave(struct BaseObj *that, uint16_t ch, double data)
+static void _addWave(struct BaseObj *that, uint16_t ch, float data)
 {
     if (ch > BASEOBJ_WAVE_MAX_CH) return;
 

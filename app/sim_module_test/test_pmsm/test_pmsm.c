@@ -35,11 +35,11 @@ static void _simTask(struct TstPmsm *that)
 {
     #define SAMPLE_PERIOD_US  50
 
-    double ms = that->getTimeMs(&that->m_obj);
-    double hs = that->getTimeHs(&that->m_obj);
-    double us = that->getTimeUs(&that->m_obj);
+    float ms = that->getTimeMs(&that->m_obj);
+    float hs = that->getTimeHs(&that->m_obj);
+    float us = that->getTimeUs(&that->m_obj);
 
-    static double last_us = 0;
+    static float last_us = 0;
 
     own.m_Pmsm.i_TL = 1;
     own.m_Pmsm.i_J =  0.01;
@@ -49,11 +49,11 @@ static void _simTask(struct TstPmsm *that)
 
 
     // set input vol 
-    double uq = 24;
-    double ud = 0;
+    float uq = 24;
+    float ud = 0;
 
-    double st = sin(own.m_Pmsm.o_thetaE);
-    double ct = cos(own.m_Pmsm.o_thetaE);
+    float st = sin(own.m_Pmsm.o_thetaE);
+    float ct = cos(own.m_Pmsm.o_thetaE);
 
     // dq->abc 得到三相电压
     dq2abc_amp(ud,uq,st,ct,&own.m_Pmsm.i_Ua,&own.m_Pmsm.i_Ub,&own.m_Pmsm.i_Uc);
@@ -69,9 +69,9 @@ static void _simTask(struct TstPmsm *that)
         // 添加波形
         that->addWave(&that->m_obj,0,own.m_Pmsm.o_rpm);
         that->addWave(&that->m_obj,1,own.m_Pmsm.o_Te);
-        that->addWave(&that->m_obj,2,own.m_Pmsm.o_Ia);
-        that->addWave(&that->m_obj,3,own.m_Pmsm.o_Ib);
-        that->addWave(&that->m_obj,4,own.m_Pmsm.o_Ic);
+        that->addWave(&that->m_obj,2,own.m_Pmsm.i_Ua);
+        that->addWave(&that->m_obj,3,own.m_Pmsm.i_Ub);
+        that->addWave(&that->m_obj,4,own.m_Pmsm.i_Uc);
         that->addWave(&that->m_obj,5,own.m_Pmsm.o_thetaE);
     }
 }

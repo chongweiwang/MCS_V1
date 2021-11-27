@@ -14,10 +14,35 @@
 #define own that->pvt
 
 
-static void _init(struct Inverter *that)
+static void _init(struct Inverter *that,float hs)
 {
+    that->c_hs = hs;
 
 }
+
+
+static void _svpwmSim(struct Inverter *that,float t, float abc_duty[3])
+{
+    own.m_abcDuty[0] = abc_duty[0];
+    own.m_abcDuty[1] = abc_duty[1];
+    own.m_abcDuty[2] = abc_duty[2];
+
+    // 计算相电压
+
+
+
+
+    #define  LIMIT(x,max,min)  (x=(x>=max?max:(x<=min?min:x)))
+
+    LIMIT(that->i_Ua_pu, 1.0, -1.0);
+    LIMIT(that->i_Ub_pu, 1.0, -1.0);
+    LIMIT(that->i_Uc_pu, 1.0, -1.0);
+
+    that->o_Ua = that->i_Ua_pu * that->i_busVol;
+    that->o_Ub = that->i_Ub_pu * that->i_busVol;
+    that->o_Uc = that->i_Uc_pu * that->i_busVol;
+}
+
 
 /**
  *  simulation inverter voltage
@@ -25,7 +50,7 @@ static void _init(struct Inverter *that)
 */
 
 
-static void _simulation(struct Inverter *that,double t, double hs)
+static void _simulation(struct Inverter *that,float t, float hs)
 {
     #define  LIMIT(x,max,min)  (x=(x>=max?max:(x<=min?min:x)))
 

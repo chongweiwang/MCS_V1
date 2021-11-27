@@ -24,32 +24,32 @@ extern "C" {
 struct DcBrush
 {
     void (*init)(struct DcBrush *that);
-    void (*simulation)(struct DcBrush *that,double t, double hs);
+    void (*simulation)(struct DcBrush *that,float t, float hs);
     
 
     // configuration variable
-    double  c_ke;    // V/rad
-    double  c_psi;   // V/rad
-    double  c_R;     // Ohm
-    double  c_L;     // H
-    double  c_Kt;    // N*m/A
+    float  c_ke;    // V/rad
+    float  c_psi;   // V/rad
+    float  c_R;     // Ohm
+    float  c_L;     // H
+    float  c_Kt;    // N*m/A
 
     // input variable
-    double  i_TL;     // N*m
-    double  i_J;      // kg.m^2
-    double  i_Ua;     // V  
+    float  i_TL;     // N*m
+    float  i_J;      // kg.m^2
+    float  i_Ua;     // V  
 
     // output variable
-    double  o_Ia;     // A
-    double  o_omega;   // rad/s
-    double  o_rpm;   // rad/s
-    double  o_Te;     // N*m
-    double  o_theta;     // 0-2pi
+    float  o_Ia;     // A
+    float  o_omega;   // rad/s
+    float  o_rpm;   // rad/s
+    float  o_Te;     // N*m
+    float  o_theta;     // 0-2pi
 
     struct 
     {
-        double  m_x[3];
-        double  m_dx[3];
+        float  m_x[3];
+        float  m_dx[3];
         uint32_t m_size;
 
         struct RK4 m_rk4;

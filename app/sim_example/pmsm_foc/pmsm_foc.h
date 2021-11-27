@@ -50,51 +50,51 @@ struct PmsmFoc
         struct 
         {
             enum PMSM_FOC_CTRL c_ctrl_mode;
-            double c_iq;
-            double c_id;
-            double c_vel;
-            double c_pos;
+            float c_iq;
+            float c_id;
+            float c_vel;
+            float c_pos;
         }Ctrl;
         
         struct 
         {
-            double i_ele_angle;
-            double i_cur[3];    // a b c cur
-            double i_ref_Iq_pu;
-            double i_ref_Id_pu;
+            float i_ele_angle;
+            float i_cur[3];    // a b c cur
+            float i_ref_Iq_pu;
+            float i_ref_Id_pu;
 
-            double m_cur_alpha;
-            double m_cur_beta;
+            float m_cur_alpha;
+            float m_cur_beta;
 
-            double m_Id;
-            double m_Iq;
+            float m_Id;
+            float m_Iq;
 
-            double m_vol_alpha;
-            double m_vol_beta;
+            float m_vol_alpha;
+            float m_vol_beta;
 
 
-            double o_Vq_pu;
-            double o_Vd_pu;
+            float o_Vq_pu;
+            float o_Vd_pu;
 
-            double o_Ua_pu;
-            double o_Ub_pu;
-            double o_Uc_pu;
+            float o_Ua_pu;
+            float o_Ub_pu;
+            float o_Uc_pu;
         }Tor;
 
         struct 
         {
-            double i_rpm_fb;
-            double i_ref_rmp;    // a b c cur
+            float i_rpm_fb;
+            float i_ref_rmp;    // a b c cur
 
-            double o_tor_ctrl_pu;
+            float o_tor_ctrl_pu;
         }Vel;
         
         struct 
         {
-            double i_ref_pos;
-            double i_fb_pos;
+            float i_ref_pos;
+            float i_fb_pos;
 
-            double o_vel_ctrl_pu;
+            float o_vel_ctrl_pu;
         }Pos;
 
     }pvt;

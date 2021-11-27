@@ -71,8 +71,8 @@ static void _init(struct PmsmFoc *that)
 static void _currentLoop(struct PmsmFoc *that)
 {
     /*1. get electrical angle -> sin cos,一般这是查表*/
-    double sint = sin(own.Tor.i_ele_angle);
-    double cost = cos(own.Tor.i_ele_angle);
+    float sint = sin(own.Tor.i_ele_angle);
+    float cost = cos(own.Tor.i_ele_angle);
 
     /*2. cur ab(c) -> alpha beta -> dq*/
     ab_clark_amp(own.Tor.i_cur[0], own.Tor.i_cur[1], &own.Tor.m_cur_alpha, &own.Tor.m_cur_beta);
@@ -130,10 +130,10 @@ static void _simTask(struct PmsmFoc *that)
 {
     #define CTRL_PERIOD_US  50
 
-    double hs = that->getTimeHs(&that->m_obj);   /* 步长*/
-    double ms = that->getTimeMs(&that->m_obj);
-    double us = that->getTimeUs(&that->m_obj);
-    static double last_us = 0;
+    float hs = that->getTimeHs(&that->m_obj);   /* 步长*/
+    float ms = that->getTimeMs(&that->m_obj);
+    float us = that->getTimeUs(&that->m_obj);
+    static float last_us = 0;
 
     /*控制模式、控制量的设置*/
     own.Ctrl.c_ctrl_mode = PMSM_FOC_CTRL_TUR;

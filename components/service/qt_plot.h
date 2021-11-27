@@ -18,7 +18,7 @@ extern "C" {
 int getInstance(int * handle);
 int qtSetWaveNum(int handle , uint32_t cnt);
 int runPlot(int handle);
-int qtAddWave(int handle,char *name,uint32_t id,double *x, double *y, uint32_t size);
+int qtAddWave(int handle,char *name,uint32_t id,float *x, float *y, uint32_t size);
 
 #ifdef  __cplusplus
 }

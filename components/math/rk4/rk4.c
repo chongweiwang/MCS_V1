@@ -18,9 +18,9 @@ static void _init(struct RK4 *that, const void *obj, const dynamic_eq_calbak dyn
 }
 
 
-static void _rk4_solve(struct RK4 *that,double t, double hs, double *dx, double *x,uint32_t size)
+static void _rk4_solve(struct RK4 *that,float t, float hs, float *dx, float *x,uint32_t size)
 {
-    double k1[SIZE_MAX], k2[SIZE_MAX], k3[SIZE_MAX], k4[SIZE_MAX], xk[SIZE_MAX];
+    float k1[SIZE_MAX], k2[SIZE_MAX], k3[SIZE_MAX], k4[SIZE_MAX], xk[SIZE_MAX];
     uint32_t i;
 
     that->pvt.mDynamic(that->pvt.mObj, dx, x, size);

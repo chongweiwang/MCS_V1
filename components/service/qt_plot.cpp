@@ -27,7 +27,7 @@ int getInstance(int * handle)
 }
 
 
-int qtAddWave(int handle,char *name,uint32_t id,double *x, double *y, uint32_t size)
+int qtAddWave(int handle,char *name,uint32_t id,float *x, float *y, uint32_t size)
 {
     WaveInfo tmp_info;
     tmp_info.id = id;

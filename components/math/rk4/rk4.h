@@ -25,12 +25,12 @@ extern "C" {
 
 // dynamic equation
 // void dynamic_eq(obj, dx, x, size)
-typedef void (*dynamic_eq_calbak)(void *, double *, double *, uint32_t);
+typedef void (*dynamic_eq_calbak)(void *, float *, float *, uint32_t);
 
 struct RK4
 {
     void (* init)(struct RK4 *that, void *obj, const dynamic_eq_calbak dynamics);
-    void (* rk4_solve)(struct RK4 *that, double t, double hs, double *dx, double *x,uint32_t size);
+    void (* rk4_solve)(struct RK4 *that, float t, float hs, float *dx, float *x,uint32_t size);
 
     struct 
     {

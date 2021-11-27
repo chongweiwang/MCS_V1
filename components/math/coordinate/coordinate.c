@@ -19,7 +19,7 @@
  * 
  *  sqrt(3)/2 = 0.866025, 2/3 = 0.666667
  */
-void abc_clark_amp(double a, double b,double c, double *alpha, double *beta)
+void abc_clark_amp(float a, float b,float c, float *alpha, float *beta)
 {
     *alpha = (a - 0.5*b - 0.5*c)*0.666667;
     *beta = (b-c)*0.866025*0.666667;
@@ -34,7 +34,7 @@ void abc_clark_amp(double a, double b,double c, double *alpha, double *beta)
  * 
  *  sqrt(2/3) = 0.816496, sqrt(3)/2 = 0.866025
  */
-void abc_clark_power(double a,double b,double c, double *alpha, double *beta)
+void abc_clark_power(float a,float b,float c, float *alpha, float *beta)
 {
     *alpha = (a - 0.5*b - 0.5*c)*0.816496;
     *beta = (b-c)*0.866025*0.816496;
@@ -48,7 +48,7 @@ void abc_clark_power(double a,double b,double c, double *alpha, double *beta)
  * 
  *  1/sqrt(3)= 0.577350
  */
-void ab_clark_amp(double a, double b, double *alpha, double *beta)
+void ab_clark_amp(float a, float b, float *alpha, float *beta)
 {
     *alpha = a;
     *beta = (a+2*b)*0.57735;
@@ -62,7 +62,7 @@ void ab_clark_amp(double a, double b, double *alpha, double *beta)
  * 
  *  sqrt(3/2) = 1.224744, 1/sqrt(2) = 0.707106  
  */
-void ab_clark_power(double a, double b, double *alpha, double *beta)
+void ab_clark_power(float a, float b, float *alpha, float *beta)
 {
     *alpha = a*1.224744; 
     *beta = (a+2*b)*0.707106;
@@ -77,7 +77,7 @@ void ab_clark_power(double a, double b, double *alpha, double *beta)
  * 
  *  sqrt(3)/2 = 0.866025
  */
-void inv_clark_amp(double alpha, double beta, double *a, double *b,double *c)
+void inv_clark_amp(float alpha, float beta, float *a, float *b,float *c)
 {
     *a = alpha;
     *b = -0.5*alpha + 0.866025*beta;
@@ -93,7 +93,7 @@ void inv_clark_amp(double alpha, double beta, double *a, double *b,double *c)
  * 
  * sqrt(3)/2 = 0.866025,sqrt(2/3)=0.816496 
  */
-void inv_clark_power(double alpha, double beta, double *a, double *b,double *c)
+void inv_clark_power(float alpha, float beta, float *a, float *b,float *c)
 {
     *a = alpha*0.816496;
     *b = (-0.5*alpha + 0.866025*beta)*0.816496;
@@ -106,7 +106,7 @@ void inv_clark_power(double alpha, double beta, double *a, double *b,double *c)
  * |d| = | cos sin||alpha|
  * |q| = |-sin cos|| beta|
  */
-void park(double alpha, double beta,double sin,double cos,double *d, double *q)
+void park(float alpha, float beta,float sin,float cos,float *d, float *q)
 {
     *d =  cos*alpha + sin*beta;
     *q = -sin*alpha + cos*beta ;
@@ -118,7 +118,7 @@ void park(double alpha, double beta,double sin,double cos,double *d, double *q)
  * |alpha|= |cos  -sin||d|
  * |beta |= |sin   cos||q|
  */
-void inv_park(double d, double q,double sin,double cos,double *alpha, double *beta)
+void inv_park(float d, float q,float sin,float cos,float *alpha, float *beta)
 {
     *alpha = cos*d - sin*q;
     *beta  = sin*d + cos*q;
@@ -126,27 +126,27 @@ void inv_park(double d, double q,double sin,double cos,double *alpha, double *be
 
 
 // sqrt(3)/2 = 0.866025
-void abc2dq_amp(double a, double b,double c, double sin,double cos,double *d, double *q)
+void abc2dq_amp(float a, float b,float c, float sin,float cos,float *d, float *q)
 { 
     *d = (cos*a + (0.866025*sin - 0.5*cos)*b - (0.5*cos + 0.866025*sin)*c)*0.666667;
     *q = (-sin*a + (0.5*sin + 0.866025*cos)*b + (0.5*sin - 0.866025*cos)*c )*0.666667;
 }
 
 // sqrt(2/3) = 0.816496
-void abc2dq_power(double a, double b,double c,double sin,double cos, double *d, double *q)
+void abc2dq_power(float a, float b,float c,float sin,float cos, float *d, float *q)
 {
     *d = (cos*a + (0.866025*sin - 0.5*cos)*b - (0.5*cos + 0.866025*sin)*c)*0.816496;
     *q = (-sin*a + (0.5*sin + 0.866025*cos)*b + (0.5*sin - 0.866025*cos)*c )*0.816496;
 }
 
-void dq2abc_amp(double d, double q,double sin,double cos,double *a, double *b,double *c)
+void dq2abc_amp(float d, float q,float sin,float cos,float *a, float *b,float *c)
 {
     *a = cos*d - sin*q;
     *b = (0.866025*sin - 0.5*cos)*d + (0.5*sin + 0.866025*cos)*q;
     *c = -(0.5*cos + 0.866025*sin)*d + (0.5*sin - 0.866025*cos)*q;
 }
 
-void dq2abc_power(double d, double q,double sin,double cos,double *a, double *b,double *c)
+void dq2abc_power(float d, float q,float sin,float cos,float *a, float *b,float *c)
 {
     *a = (cos*d - sin*q)*0.816496;
     *b = ((0.866025*sin - 0.5*cos)*d + (0.5*sin + 0.866025*cos)*q)*0.816496;

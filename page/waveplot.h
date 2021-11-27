@@ -20,8 +20,8 @@ struct WaveProp
 {
     struct WaveInfo info;
 
-    double *x;
-    double *y;
+    float *x;
+    float *y;
 
     uint32_t size;
 };
@@ -38,7 +38,7 @@ public:
     static WavePlot *instance();
 
     // 接口
-    void addSimWave(WaveInfo info,double *x, double *y, uint32_t size);
+    void addSimWave(WaveInfo info,float *x, float *y, uint32_t size);
 
     void setSimWaveCnt(uint32_t cnt);
     void SimWavePlot(void);

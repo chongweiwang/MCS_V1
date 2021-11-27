@@ -59,12 +59,12 @@ enum PID_KIND{
 // 直流有刷电机主要在这里进行仿真
 static void _simTask(struct TstPid *that)
 {
-    double us = that->getTimeUs(&that->m_obj);
-    double ms = that->getTimeMs(&that->m_obj);
-    double hs = that->getTimeHs(&that->m_obj);
-    static double last_us = 0;
+    float us = that->getTimeUs(&that->m_obj);
+    float ms = that->getTimeMs(&that->m_obj);
+    float hs = that->getTimeHs(&that->m_obj);
+    static float last_us = 0;
 
-    double rmp_cmd = 200;
+    float rmp_cmd = 200;
 
     if (ms > 500) rmp_cmd = 400;
 
@@ -73,10 +73,10 @@ static void _simTask(struct TstPid *that)
     {
         last_us = us;
         /*vel ctrl*/
-        double rmp_err = rmp_cmd-own.m_DcBrush.o_rpm;
+        float rmp_err = rmp_cmd-own.m_DcBrush.o_rpm;
 
-        enum PID_KIND pid_kind = DCLAMP;
-        double vol_out = 0;
+        enum PID_KIND pid_kind = BACK_CAL;
+        float vol_out = 0;
 
         switch (pid_kind)
         {

@@ -7,8 +7,8 @@ WavePlot::WavePlot(QWidget *parent) : QWidget(parent)
     mBoxLayout = new QVBoxLayout(parent);
 
 
-//    double x[20] = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,1,2};
-//    double y[20] = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,1,2};
+//    float x[20] = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,1,2};
+//    float y[20] = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,1,2};
 //    WaveInfo info;
 //    strcpy(info.name, "wangchongwei");
 //    addSimWave(info, x, y, 20);
@@ -36,7 +36,7 @@ WavePlot::~WavePlot()
 }
 
 
-void WavePlot::addSimWave(WaveInfo info,double *x, double *y, uint32_t size)
+void WavePlot::addSimWave(WaveInfo info,float *x, float *y, uint32_t size)
 {
     WaveProp prop;
 

@@ -32,10 +32,10 @@ static void _simTask(struct TstDcBrush *that)
 {
     #define SAMPLE_PERIOD_US  50
 
-    double us = that->getTimeUs(&that->m_obj);
-    double ms = that->getTimeMs(&that->m_obj);
-    double hs = that->getTimeHs(&that->m_obj);
-    static double last_us = 0;
+    float us = that->getTimeUs(&that->m_obj);
+    float ms = that->getTimeMs(&that->m_obj);
+    float hs = that->getTimeHs(&that->m_obj);
+    static float last_us = 0;
 
     // 输入电压，负载
     own.m_DcBrush.i_Ua = 24;

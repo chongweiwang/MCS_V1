@@ -25,41 +25,41 @@ extern "C" {
 struct Pmsm
 {
     void (*init)(struct Pmsm *that);
-    void (*simulation)(struct Pmsm *that,double t, double hs);
+    void (*simulation)(struct Pmsm *that,float t, float hs);
 
     // configuration variable
-    double c_rated_cur;         /*额定电流*/
-    double c_rated_vol;         /*额定电压*/
-    double c_rated_tor;         /*额定力矩*/
-    double c_rated_vel;         /*额定速度*/
-    double c_rated_pow;         /*额定功率*/
+    float c_rated_cur;         /*额定电流*/
+    float c_rated_vol;         /*额定电压*/
+    float c_rated_tor;         /*额定力矩*/
+    float c_rated_vel;         /*额定速度*/
+    float c_rated_pow;         /*额定功率*/
 
-    double c_R;          // Ohm 
-    double c_Lq,c_Ld;    // dq H
-    double c_Pn;         // 极对数
-    double c_B;          // 粘滞摩擦系数,阻尼系数N*m*s 
-    double c_psi;        // 永磁体磁链
-    double c_ke;         // 反电动势系数
+    float c_R;          // Ohm 
+    float c_Lq,c_Ld;    // dq H
+    float c_Pn;         // 极对数
+    float c_B;          // 粘滞摩擦系数,阻尼系数N*m*s 
+    float c_psi;        // 永磁体磁链
+    float c_ke;         // 反电动势系数
 
     // input variable
-    double i_Ua, i_Ub, i_Uc;    // 输入电压
-    double i_TL;                // 输入负载转矩N*m
-    double i_J;                 // kg.m^2 转动惯量
+    float i_Ua, i_Ub, i_Uc;    // 输入电压
+    float i_TL;                // 输入负载转矩N*m
+    float i_J;                 // kg.m^2 转动惯量
 
     // Internal ode calculate
-    double o_Ia,o_Ib,o_Ic;          // A
-    double o_omegaE,o_omegaR;       // rad/s
-    double o_Te;                    // N*m
-    double o_thetaE,o_thetaR;       // 位置信息
-    double o_rpm;                   // 机械转速 rpm
+    float o_Ia,o_Ib,o_Ic;          // A
+    float o_omegaE,o_omegaR;       // rad/s
+    float o_Te;                    // N*m
+    float o_thetaE,o_thetaR;       // 位置信息
+    float o_rpm;                   // 机械转速 rpm
 
     struct 
     {
-        double m_Uq,m_Ud;
-        double m_Iq,m_Id;
+        float m_Uq,m_Ud;
+        float m_Iq,m_Id;
 
-        double  m_x[5];
-        double  m_dx[5];
+        float  m_x[5];
+        float  m_dx[5];
         uint32_t m_size;
 
         struct RK4 m_rk4;

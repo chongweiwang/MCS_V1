@@ -20,7 +20,7 @@
  *  dtheta/dt = w
  *  dx[i,w,theta]  x[i,w,theta]
 */
-static void dynamic(struct DcBrush *that, double *dx, double *x, uint32_t size)
+static void dynamic(struct DcBrush *that, float *dx, float *x, uint32_t size)
 {
     dx[0] = (that->i_Ua - that->c_R*x[0] - that->c_psi*x[1])/ that->c_L;
     that->o_Te = that->c_Kt*x[0];
@@ -35,7 +35,7 @@ static void _init(struct DcBrush *that)
 }
 
 #define pi 3.141592
-static void _simulation(struct DcBrush *that,double t, double hs)
+static void _simulation(struct DcBrush *that,float t, float hs)
 {
     
     // 1. simulation, solve differential equations

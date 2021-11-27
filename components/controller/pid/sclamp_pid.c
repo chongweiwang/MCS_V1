@@ -64,6 +64,9 @@ static float _pi(struct SClampPID *that, float err)
 {
     that->i_err = err;
 
+
+
+
     own.m_pre_out = that->i_err * own.m_kp + own.m_sum;
 
     that->o_out = own.m_pre_out;

@@ -2,7 +2,7 @@
  * @copyright   Copyright 2021 zerodrive wangchongwei 
  * @license:    Apache-2.0 License
  * @brief:      back-calculation
- * @details:  kc:0.3~3*Ki/Kp  default:Ki/Kp  
+ * @details:    kc:0.3~3*Ki/Kp  default:Ki/Kp  
  * @changelog:
  * date         author          notes
  * 2021.11.20   wangchongwei    back-calculation    

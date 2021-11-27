@@ -27,7 +27,7 @@
  *  dx[id,iq,dwr,dthetaR,dthetaE]  x[id,iq,wr,thetaR,thetaE]
 */
 #define pi 3.141592
-static void dynamic(struct Pmsm *that, double *dx, double *x, uint32_t size)
+static void dynamic(struct Pmsm *that, float *dx, float *x, uint32_t size)
 {
     dx[0] = (own.m_Ud - that->c_R*x[0] + that->o_omegaE*that->c_Lq*x[1]) / that->c_Ld;
     dx[1] = (own.m_Uq - that->c_R*x[1] - that->o_omegaE*that->c_Ld*x[0] - that->o_omegaE*that->c_psi)/that->c_Lq;
@@ -44,7 +44,7 @@ static void _init(struct Pmsm *that)
 
 }
 
-static void _simulation(struct Pmsm *that,double t, double hs)
+static void _simulation(struct Pmsm *that,float t, float hs)
 {
     // 1.input vol abc->dq
     float st = sin(that->o_thetaE);

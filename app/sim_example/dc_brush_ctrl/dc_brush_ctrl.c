@@ -37,12 +37,12 @@ static void _init(struct DcBrushCtrl *that)
 */
 static void _simTask(struct DcBrushCtrl *that)
 {
-    double us = that->getTimeUs(&that->m_obj);
-    double ms = that->getTimeMs(&that->m_obj);
-    double hs = that->getTimeHs(&that->m_obj);
-    static double last_us = 0;
+    float us = that->getTimeUs(&that->m_obj);
+    float ms = that->getTimeMs(&that->m_obj);
+    float hs = that->getTimeHs(&that->m_obj);
+    static float last_us = 0;
 
-    double rmp_cmd = 200;
+    float rmp_cmd = 200;
 
     own.m_DcBrush.i_TL = 0.20;
     own.m_DcBrush.i_J  = 0.001;
@@ -57,8 +57,8 @@ static void _simTask(struct DcBrushCtrl *that)
     {
         last_us = us;
         /*vel ctrl*/
-        double rmp_err = rmp_cmd-own.m_DcBrush.o_rpm;
-        double vol_out = own.m_rpm_pid.pi(&own.m_rpm_pid,rmp_err);
+        float rmp_err = rmp_cmd-own.m_DcBrush.o_rpm;
+        float vol_out = own.m_rpm_pid.pi(&own.m_rpm_pid,rmp_err);
 
         /*假设最大电压24v*/
         own.m_DcBrush.i_Ua = 24*(vol_out);

@@ -15,21 +15,21 @@ extern "C" {
 #endif
 
 
-void abc_clark_amp(double a, double b,double c, double *alpha, double *beta);
-void ab_clark_amp(double a, double b, double *alpha, double *beta);
-void inv_clark_amp(double alpha, double beta, double *a, double *b,double *c);
-void abc2dq_amp(double a, double b,double c, double sin,double cos,double *d, double *q);
-void dq2abc_amp(double d, double q,double sin,double cos,double *a, double *b,double *c);
+void abc_clark_amp(float a, float b,float c, float *alpha, float *beta);
+void ab_clark_amp(float a, float b, float *alpha, float *beta);
+void inv_clark_amp(float alpha, float beta, float *a, float *b,float *c);
+void abc2dq_amp(float a, float b,float c, float sin,float cos,float *d, float *q);
+void dq2abc_amp(float d, float q,float sin,float cos,float *a, float *b,float *c);
 
 
-void park(double alpha, double beta,double sin,double cos,double *d, double *q);
-void inv_park(double d, double q,double sin,double cos,double *alpha, double *beta);
+void park(float alpha, float beta,float sin,float cos,float *d, float *q);
+void inv_park(float d, float q,float sin,float cos,float *alpha, float *beta);
 
-void abc_clark_power(double a,double b,double c, double *alpha, double *beta);
-void ab_clark_power(double a, double b, double *alpha, double *beta);
-void inv_clark_power(double alpha, double beta, double *a, double *b,double *c);
-void abc2dq_power(double a, double b,double c,double sin,double cos, double *d, double *q);
-void dq2abc_power(double d, double q,double sin,double cos,double *a, double *b,double *c);
+void abc_clark_power(float a,float b,float c, float *alpha, float *beta);
+void ab_clark_power(float a, float b, float *alpha, float *beta);
+void inv_clark_power(float alpha, float beta, float *a, float *b,float *c);
+void abc2dq_power(float a, float b,float c,float sin,float cos, float *d, float *q);
+void dq2abc_power(float d, float q,float sin,float cos,float *a, float *b,float *c);
 
 
 #ifdef  __cplusplus
